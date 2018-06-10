@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.MemoryStore", "Api.Memo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.PermanentStore", "Api.PermanentStore\Api.PermanentStore.csproj", "{A700B57C-23C2-4860-A344-80631D00E33A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.EndToEndTest", "Api.EndToEndTest\Api.EndToEndTest.csproj", "{734D500F-7BF0-4876-AF02-92A527E7BE73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{A700B57C-23C2-4860-A344-80631D00E33A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A700B57C-23C2-4860-A344-80631D00E33A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A700B57C-23C2-4860-A344-80631D00E33A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{734D500F-7BF0-4876-AF02-92A527E7BE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734D500F-7BF0-4876-AF02-92A527E7BE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734D500F-7BF0-4876-AF02-92A527E7BE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734D500F-7BF0-4876-AF02-92A527E7BE73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
