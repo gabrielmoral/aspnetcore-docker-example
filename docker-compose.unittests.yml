@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  unittests:
+    image: microsoft/dotnet:2.1-sdk
+    volumes:
+      - ./api:/api
+    command: dotnet test api/Api.Test
+
+
