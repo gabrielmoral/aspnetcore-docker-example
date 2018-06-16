@@ -1,16 +1,18 @@
 version: '3'
 
 services:
-
-  api:
-    build:
-      context: api/
-      dockerfile: Dockerfile
+  endtoendtests:
+    image: microsoft/dotnet:2.1-sdk
+    volumes:
+      - ./api:/api
+    command:
+      - /bin/bash
+      - /api/Api.EndToEndTest/run.sh
     depends_on: 
       - redis
       - db
     environment:
-      - AppUrl=http://localhost:5000
+      - AppUrl=http://localhost:5000      
       - RedisConn=redis
       - SqlConn=Server=mariadb;Database=valuesDb;Uid=anuser;Pwd=apassword;SslMode=none;
     ports:
@@ -28,3 +30,5 @@ services:
       context: sql/
       dockerfile: Dockerfile
     restart: always
+
+

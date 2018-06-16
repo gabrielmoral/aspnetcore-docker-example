@@ -8,9 +8,8 @@ COPY ./Api.Domain/*.csproj ./Api.Domain/
 COPY ./Api.MemoryStore/*.csproj ./Api.MemoryStore/
 COPY ./Api.PermanentStore/*.csproj ./Api.PermanentStore/
 COPY ./Api.Test/*.csproj ./Api.Test/
+COPY ./Api.EndToEndTest/*.csproj ./Api.EndToEndTest/
 COPY . ./
-
-RUN dotnet test Api.Test
 
 RUN dotnet publish -c Release -o out
 

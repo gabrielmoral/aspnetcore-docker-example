@@ -17,19 +17,24 @@ namespace Api
             BuildWebHost(args).Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        private static IWebHost BuildWebHost(string[] args)
+        {
+            var webHostBuilder = WebHost.CreateDefaultBuilder(args)
                 .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                     logging.AddConsole();
                     logging.AddDebug();
                 })
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    config.AddEnvironmentVariables();
-                })
-                .UseStartup<Startup>()
-                .Build();
+                .ConfigureAppConfiguration((hostingContext, config) => { config.AddEnvironmentVariables(); })
+                .UseStartup<Startup>();
+
+            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("AppUrl")))
+            {
+                webHostBuilder.UseUrls(Environment.GetEnvironmentVariable("AppUrl"));
+            }
+            
+            return webHostBuilder.Build();
+        }
     }
 }
