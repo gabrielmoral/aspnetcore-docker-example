@@ -1,0 +1,46 @@
+apiVersion: 2018-06-01
+location: eastus
+name: myContainerGroup
+properties:
+  containers:
+  - name: redis
+    properties:
+      image: redis:alpine
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 0.5
+      ports:
+      - port: 6379
+  - name: db
+    properties:
+      image: gabrielmoral/aspnetcore_docker_example_db
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1
+  - name: api
+    properties:
+      environmentVariables:
+      - name: AppUrl
+        value: http://pepedns.eastus.azurecontainer.io
+      - name: RedisConn
+        value: localhost
+      - name: SqlConn
+        value: Server=localhost;Database=valuesDb;Uid=anuser;Pwd=apassword;SslMode=none;
+      image: gabrielmoral/api
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1
+      ports:
+      - port: 80
+  osType: Linux
+  ipAddress:
+    dnsNameLabel: pepedns
+    type: Public
+    ports:
+    - protocol: tcp
+      port: '80'
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
