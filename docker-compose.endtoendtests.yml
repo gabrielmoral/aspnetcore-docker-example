@@ -12,11 +12,11 @@ services:
       - redis
       - db
     environment:
-      - AppUrl=http://localhost:5000      
+      - AppUrl=http://*:5000      
       - RedisConn=redis
       - SqlConn=Server=mariadb;Database=valuesDb;Uid=anuser;Pwd=apassword;SslMode=none;
     ports:
-      - "5000:80"
+      - "5000:5000"
 
   redis:
     container_name: redis
